@@ -1,0 +1,149 @@
+[
+  {
+    "action": "/api/core_test/DeviceCapabilities",
+    "id": 1,
+    "name": "DeviceCapabilities",
+    "service": "Device",
+    "type": "direct"
+  },
+  {
+    "action": "/api/core_test/GetCapabilities",
+    "id": 2,
+    "name": "GetCapabilities",
+    "service": "Device",
+    "type": "direct"
+  },
+  {
+    "action": "/api/core_test/GetDiscoveryMode",
+    "id": 3,
+    "name": "GetDiscoveryMode",
+    "service": "Device",
+    "type": "direct"
+  },
+  {
+    "action": "/api/core_test/SetDiscoveryMode",
+    "id": 4,
+    "name": "SetDiscoveryMode",
+    "service": "Device",
+    "type": "pair"
+  },
+  {
+    "action": "/api/core_test/GetScopes",
+    "id": 5,
+    "name": "GetScopes",
+    "service": "Device",
+    "type": "direct"
+  },
+  {
+    "action": "/api/core_test/AddScopes",
+    "id": 6,
+    "name": "AddScopes",
+    "service": "Device",
+    "type": "pair"
+  },
+  {
+    "action": "/api/core_test/RemoveScopes",
+    "id": 7,
+    "name": "RemoveScopes",
+    "service": "Device",
+    "type": "pair"
+  },
+  {
+    "action": "/api/core_test/GetHostname",
+    "id": 8,
+    "name": "GetHostname",
+    "service": "Device",
+    "type": "direct"
+  },
+  {
+    "action": "/api/core_test/SetHostname",
+    "id": 9,
+    "name": "SetHostname",
+    "service": "Device",
+    "type": "pair"
+  },
+  {
+    "action": "/api/core_test/GetNetworkInterfaces",
+    "id": 10,
+    "name": "GetNetworkInterfaces",
+    "service": "Device",
+    "type": "direct"
+  },
+  {
+    "action": "/api/core_test/GetDNS",
+    "id": 11,
+    "name": "GetDNS",
+    "service": "Device",
+    "type": "direct"
+  },
+  {
+    "action": "/api/core_test/GetNetworkProtocols",
+    "id": 12,
+    "name": "GetNetworkProtocols",
+    "service": "Device",
+    "type": "direct"
+  },
+  {
+    "action": "/api/core_test/GetNetworkDefaultGateway",
+    "id": 13,
+    "name": "GetNetworkDefaultGateway",
+    "service": "Device",
+    "type": "direct"
+  },
+  {
+    "action": "/api/core_test/SetNetworkDefaultGateway",
+    "id": 14,
+    "name": "SetNetworkDefaultGateway",
+    "service": "Device",
+    "type": "pair"
+  },
+  {
+    "action": "/api/core_test/GetDeviceInformation",
+    "id": 15,
+    "name": "GetDeviceInformation",
+    "service": "Device",
+    "type": "direct"
+  },
+  {
+    "action": "/api/core_test/GetUsers",
+    "id": 16,
+    "name": "GetUsers",
+    "service": "Device",
+    "type": "direct"
+  },
+  {
+    "action": "/api/core_test/DeleteUsers",
+    "id": 17,
+    "name": "DeleteUsers",
+    "service": "Device",
+    "type": "pair"
+  },
+  {
+    "action": "/api/core_test/GetNTP",
+    "id": 18,
+    "name": "GetNTP",
+    "service": "Device",
+    "type": "pair"
+  },
+  {
+    "action": "/api/core_test/GetServices",
+    "id": 19,
+    "name": "GetServices",
+    "service": "Device",
+    "type": "pair"
+  },
+  {
+    "action": "/api/core_test/GetSystemDateAndTime",
+    "id": 20,
+    "name": "GetSystemDateAndTime",
+    "service": "Device",
+    "type": "pair"
+  },
+  {
+    "action": "/api/core_test/GetSystemUris",
+    "id": 21,
+    "name": "GetSystemUris",
+    "service": "Device",
+    "type": "pair"
+  }
+]
