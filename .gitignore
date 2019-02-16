@@ -1,0 +1,4 @@
+.vscode/
+*.pyc
+devices.json
+node_modules/
