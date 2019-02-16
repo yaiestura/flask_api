@@ -1,0 +1,29 @@
+/* The sidebar menu */
+
+.w3-sidebar {
+    position: fixed;
+    margin: 0%;
+    height: 100%;
+    left: 0%;
+    top: 64px;
+}
+
+.line-separator{
+    height: 1px;    
+    background: rosybrown;    
+    border-bottom: 1px solid #fff;    
+}
+
+.menu-item {
+    width: 100%;
+}
+
+.divider{
+    margin: 0%;
+    height: 1px;    
+    background: white;            
+}
+
+    
+
+

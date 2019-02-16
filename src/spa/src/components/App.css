@@ -1,0 +1,26 @@
+.sidebar {
+    padding: 0px;
+    margin: 0px;
+    width: 64px;
+}
+
+/*body {
+    background: indigo;
+}*/
+
+.navbar {
+    margin-bottom: 10px;
+}
+
+.dashboard {    
+    height: 85vh; 
+    margin-left: 10px;      
+}
+
+
+
+
+
+
+
+

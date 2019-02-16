@@ -1,0 +1,9 @@
+.report {
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    overflow-y: scroll;
+    height: 87vh;
+    padding-left: 5%
+    
+}

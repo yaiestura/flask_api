@@ -1,0 +1,39 @@
+.collection {
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px; 
+}
+
+.information .collection {
+    margin-left: 5%;
+}
+
+.actions {
+    margin-top: 5%;
+}
+
+.collection-item {
+    font-family: 'Assistant';
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 22px;
+    padding-right: 5vh;     
+}
+
+.deviceinfo {  
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 87vh;
+    margin: 0vh;    
+}
+
+.label {
+    font-family: 'Assistant';
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    padding-left: 5%;
+    margin-top: 5px;
+    margin-bottom: 0%;
+}
