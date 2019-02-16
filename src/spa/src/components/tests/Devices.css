@@ -1,0 +1,35 @@
+.collection {
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px; 
+}
+
+.collection-item {
+    font-family: 'Assistant';
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 22px;
+    padding-right: 5vh;     
+}
+
+.devices {  
+    overflow-y: scroll;
+    height: 80vh;
+    margin: 0vh;    
+}
+
+.preloader {
+    height: 80vh;
+    margin: 0vh;  
+}
+
+.label {
+    font-family: 'Assistant';
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    padding-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 0%;
+}

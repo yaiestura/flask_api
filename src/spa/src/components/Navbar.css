@@ -1,0 +1,17 @@
+.nav-wrapper {
+  font-family: 'Assistant';
+}
+
+.logo {
+    width: 169px;
+    height: 47px;    
+  }
+
+.container .left {  
+  font-size: 1.5rem;
+  padding-left: 5vh;
+}
+
+.routes {
+  font-size: 1.5rem;
+}
