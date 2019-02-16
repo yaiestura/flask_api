@@ -14,9 +14,9 @@ CORS(app)
 
 @app.route("/api/discovery", methods=['GET'])
 def discovery():
-    execute_js('discovery.js')
+    execute_js('./js_scripts/discovery.js')
     try:
-        with open('./devices.json') as json_file:
+        with open('./tmp/devices.json') as json_file:
             data = json.load(json_file)
     except IOError: # parent of IOError, OSError *and* WindowsError where available
         data = 'Devices List haven\'t been loaded yet'

@@ -1,5 +1,6 @@
 const onvif = require("node-onvif");
 const fs    = require("fs");
+const path  = require("path");
 
 function parseIpPort(s) {
   let port = s.match(/(?<=:)\d+/)[0];
@@ -18,7 +19,7 @@ onvif.startProbe().then((devices) => {
   console.log(json);
 
   fs.writeFile(
-    "./devices.json", 
+    path.resolve(__dirname, "./../tmp/devices.json"), 
     JSON.stringify(json), 
     err => err ? console.log(err) : console.log("File has been created")
   )
