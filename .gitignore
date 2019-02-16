@@ -14,7 +14,7 @@ node_modules/
 /coverage
 
 # production
-/build
+src/backend/templates/build/
 
 # misc
 .DS_Store
