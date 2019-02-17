@@ -9,6 +9,8 @@ import csv
 import datetime
 from Naked.toolshed.shell import execute_js
 from utils.discovery import discovery
+from urllib import urlretrieve
+import base64
 
 prod = True
 
@@ -26,12 +28,6 @@ if not prod:
 
 @app.route("/api/discovery", methods=['GET'])
 def wsdiscovery():
-    # execute_js('./src/backend/js_scripts/discovery.js')
-    # try:
-    #     with open('./src/backend/tmp/devices.json') as json_file:
-    #         data = json.load(json_file)
-    # except IOError: # parent of IOError, OSError *and* WindowsError where available
-    #     data = 'Devices List haven\'t been loaded yet'
     data = discovery()
     return jsonify(data)
 
@@ -77,10 +73,14 @@ def deviceinfo():
         cam = Core(ip, port, 'admin', 'Supervisor')
         response = cam.GetDeviceInformation()
         print(response)
+
+        snapshot = urlretrieve(cam.GetSnapshotUri(), "snapshot").read()
+        encoded_snapshot = base64.b64encode(snapshot)
+
         return jsonify(
             IP = ip,
             Port = port,
-            Uri = cam.GetSnapshotUri(),
+            Uri = encoded_snapshot,
             Manufacturer = response[0],
             Model = response[1],
             FirmwareVersion = response[2],
