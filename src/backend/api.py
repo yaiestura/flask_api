@@ -75,9 +75,6 @@ def deviceinfo():
         response = cam.GetDeviceInformation()
         print(response)
 
-        # snapshot = urlopen(cam.GetSnapshotUri()).read()
-        # encoded_snapshot = base64.b64encode(snapshot)
-
         return jsonify(
             IP = ip,
             Port = port,
