@@ -116,10 +116,15 @@ def snapshoturi():
         cam = Core(ip, port, 'admin', 'Supervisor')
         return jsonify(Uri = cam.GetSnapshotUri())
 
-@app.route("/", methods=['GET'])
-def index():
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def index(path):
     return render_template('index.html')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    if '--dev' not in sys.argv:
+        print "Please use uWSGI instead of dev server or run this script with --dev flag"
+    else:
+        app.run(debug=True)
