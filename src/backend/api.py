@@ -80,7 +80,7 @@ def deviceinfo():
         return jsonify(
             IP = ip,
             Port = port,
-            Uri = encoded_snapshot,
+            Uri = 'data:image/jpeg;base64,' + encoded_snapshot,
             Manufacturer = response[0],
             Model = response[1],
             FirmwareVersion = response[2],
