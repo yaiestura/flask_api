@@ -1,6 +1,7 @@
 import urllib2
 import base64
 import re
+import os
 
 
 NO_SNAPSHOT_URL = 'http://www.inspiredbydrive.com/wp-content/uploads/2016/12/no-image.png'
@@ -31,11 +32,14 @@ def fetch_snapshot(url, username, password):
 def save_snapshot(url, username, password):
     image = fetch_snapshot(url, username, password)
     snapshot_url = NO_SNAPSHOT_URL
+    path = './src/backend/templates/build/static/snapshots'
+    if not os.path.isdir(path):
+        os.makedirs(path)
 
     if image is not None:
         res = re.findall(r'\d+\.\d+\.\d+\.\d+|(?<=:)\d+', url)
         ip, port = res if len(res) == 2 else res[0], '80'
-        with open('templates/build/static/snapshots/%s:%s.jpg' % (str(ip), str(port)) , 'wb') as i:
+        with open('%s/%s:%s.jpg' % (path, str(ip), str(port)) , 'wb') as i:
             t.write(image)
         snapshot_url = '/snapshots/%s:%s.jpg' % (str(ip), str(port))
     return snapshot_url
