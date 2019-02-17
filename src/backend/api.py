@@ -8,6 +8,7 @@ import sys
 import csv
 import datetime
 from Naked.toolshed.shell import execute_js
+from utils.discovery import discovery
 
 prod = True
 
@@ -24,13 +25,14 @@ if not prod:
     CORS(app)
 
 @app.route("/api/discovery", methods=['GET'])
-def discovery():
-    execute_js('./src/backend/js_scripts/discovery.js')
-    try:
-        with open('./src/backend/tmp/devices.json') as json_file:
-            data = json.load(json_file)
-    except IOError: # parent of IOError, OSError *and* WindowsError where available
-        data = 'Devices List haven\'t been loaded yet'
+def wsdiscovery():
+    # execute_js('./src/backend/js_scripts/discovery.js')
+    # try:
+    #     with open('./src/backend/tmp/devices.json') as json_file:
+    #         data = json.load(json_file)
+    # except IOError: # parent of IOError, OSError *and* WindowsError where available
+    #     data = 'Devices List haven\'t been loaded yet'
+    data = discovery()
     return jsonify(data)
 
 
