@@ -146,10 +146,19 @@ def get_public_snapshot_url(path):
     return send_from_directory('snapshots', path)
 
 
+""" @app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def index(path):
+    return render_template('index.html') """
+
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def index(path):
-    return render_template('index.html')
+     path_dir = os.path.abspath("templates/build") #path react build
+     if path != "" and os.path.exists(os.path.join(path_dir, path)):
+         return send_from_directory(os.path.join(path_dir), path)
+     else:
+         return send_from_directory(os.path.join(path_dir),'index.html')
 
 
 if __name__ == '__main__':

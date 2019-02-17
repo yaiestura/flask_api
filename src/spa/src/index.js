@@ -32,8 +32,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={ Home }/>
-        <Route path="/discoverydashboard" component={ App }/>
-        <Route exact path='/testdashboard' component={ TestDashboard } />
+        <Route path="/discoverydashboard" component={ App }/>        
       </Switch>
     </BrowserRouter>
   </Provider>,
