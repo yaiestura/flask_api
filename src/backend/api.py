@@ -9,7 +9,7 @@ import csv
 import datetime
 from Naked.toolshed.shell import execute_js
 from utils.discovery import discovery
-from urllib import urlretrieve
+from urllib import urlopen
 import base64
 
 prod = True
@@ -74,7 +74,7 @@ def deviceinfo():
         response = cam.GetDeviceInformation()
         print(response)
 
-        snapshot = urlretrieve(cam.GetSnapshotUri(), "snapshot").read()
+        snapshot = urlopen(cam.GetSnapshotUri()).read()
         encoded_snapshot = base64.b64encode(snapshot)
 
         return jsonify(
