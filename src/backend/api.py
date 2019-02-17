@@ -17,8 +17,8 @@ if '--production' not in sys.argv:
 
 
 app = Flask(__name__,
- static_folder = './src/backend/templates/build/static',
- template_folder="./src/backend/templates/build")
+ static_folder = 'templates/build/static',
+ template_folder="templates/build")
 
 if not prod:
     CORS(app)
