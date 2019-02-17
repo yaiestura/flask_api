@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, Response, session, render_template
+from flask import Flask, jsonify, request, render_template
 from core import Core
 from class_core import Core_Test
 import json
@@ -7,11 +7,9 @@ import os
 import sys
 import csv
 import datetime
-from Naked.toolshed.shell import execute_js
+
 from utils.discovery import discovery
 from utils.get_snapshot import get_snapshot
-from urllib import urlopen
-import base64
 
 prod = True
 
@@ -40,6 +38,7 @@ def init():
         print(request.data)
         return 'RECIEVED'
 
+
 @app.route("/api/core_test/<method_name>", methods=['GET'])
 def core_test(method_name):
     if request.method == 'GET':
@@ -57,12 +56,14 @@ def core_test(method_name):
         except:
             return jsonify(error = "ONVIFError, " + method_name + " method does not respond. You may check VPN Connection")
 
+
 @app.route("/api/core_test/load", methods=['GET'])
 def core_load():
     try:
         with open('./tests/core.json', 'r') as f:
             data = json.load(f)
-    except IOError: # parent of IOError, OSError *and* WindowsError where available
+    # parent of IOError, OSError *and* WindowsError where available
+    except IOError: 
         data = 'Error. Core Test can not be loaded.'
     return jsonify(data)
 
@@ -83,7 +84,8 @@ def deviceinfo():
             Model = response[1],
             FirmwareVersion = response[2],
             SerialNumber = response[3],
-            HardwareId = response[4])
+            HardwareId = response[4]
+        )
 
 @app.route("/api/writecsv", methods=['GET'])
 def writecsv():
@@ -96,12 +98,35 @@ def writecsv():
         header = [['Device IP', ip], ['Test Performed', date[0]]]
         summary = [['Services', cam.DeviceCapabilities()]]
         reportn = os.getcwd() + '/reports/' + ip + '.csv'
+
         with open(reportn, 'w') as csvFile:
             writer = csv.writer(csvFile)
             writer.writerows(header)
             writer.writerows(summary)
-            writer.writerows([['GetCapabilities', cam.GetCapabilities()], ['GetDiscoveryMode', cam.GetDiscoveryMode()], ['SetDiscoveryMode', cam.SetDiscoveryMode()], ['GetScopes', cam.GetScopes()], ['AddScopes', cam.AddScopes()], ['RemoveScopes', cam.RemoveScopes()], ['GetHostname', cam.GetHostname()], ['SetHostname', cam.SetHostname()], ['GetNetworkInterfaces', cam.GetNetworkInterfaces()], ['GetDNS', cam.GetDNS()], ['GetNetworkProtocols', cam.GetNetworkProtocols()], ['GetNetworkDefaultGateway', cam.GetNetworkDefaultGateway()], ['SetNetworkDefaultGateway', cam.SetNetworkDefaultGateway()], ['GetDeviceInformation', cam.GetDeviceInformation()], ['GetUsers', cam.GetUsers()], ['DeleteUsers', cam.DeleteUsers()], ['GetNTP', cam.GetNTP()], ['GetServices', cam.GetServices()], ['GetSystemDateAndTime', cam.GetSystemDateAndTime()], ['GetSystemUris', cam.GetSystemUris()]])
-        csvFile.close()
+            writer.writerows(
+                [
+                    ['GetCapabilities', cam.GetCapabilities()], 
+                    ['GetDiscoveryMode', cam.GetDiscoveryMode()], 
+                    ['SetDiscoveryMode', cam.SetDiscoveryMode()], 
+                    ['GetScopes', cam.GetScopes()], 
+                    ['AddScopes', cam.AddScopes()], 
+                    ['RemoveScopes', cam.RemoveScopes()], 
+                    ['GetHostname', cam.GetHostname()], 
+                    ['SetHostname', cam.SetHostname()], 
+                    ['GetNetworkInterfaces', cam.GetNetworkInterfaces()], 
+                    ['GetDNS', cam.GetDNS()], 
+                    ['GetNetworkProtocols', cam.GetNetworkProtocols()], 
+                    ['GetNetworkDefaultGateway', cam.GetNetworkDefaultGateway()], 
+                    ['SetNetworkDefaultGateway', cam.SetNetworkDefaultGateway()], 
+                    ['GetDeviceInformation', cam.GetDeviceInformation()], 
+                    ['GetUsers', cam.GetUsers()], 
+                    ['DeleteUsers', cam.DeleteUsers()], 
+                    ['GetNTP', cam.GetNTP()], 
+                    ['GetServices', cam.GetServices()], 
+                    ['GetSystemDateAndTime', cam.GetSystemDateAndTime()], 
+                    ['GetSystemUris', cam.GetSystemUris()]
+                ])
+
         return "POSTED_CSV"
 
 @app.route("/api/snapshoturi", methods=['GET', 'POST'])
