@@ -21,8 +21,8 @@ class App extends Component {
             </div> 
             <div className="col l11 dashboard">
             <Switch>   
-              <Route path='/discoverydashboard'component={Dashboard} />
-              <Route path='/testdashboard' component={TestDashboard} />            
+              <Route exact path='/discoverydashboard'component={Dashboard} />
+              <Route exact path='/testdashboard' component={TestDashboard} />            
             </Switch>
             </div>   
           </div>
