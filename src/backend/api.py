@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template, send_from_directory
+from flask import Flask, jsonify, request, render_template
 from core import Core
 from class_core import Core_Test
 import json
@@ -146,19 +146,10 @@ def get_public_snapshot_url(path):
     return send_from_directory('snapshots', path)
 
 
-""" @app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def index(path):
-    return render_template('index.html') """
-
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def index(path):
-     path_dir = os.path.abspath("templates/build") #path react build
-     if path != "" and os.path.exists(os.path.join(path_dir, path)):
-         return send_from_directory(os.path.join(path_dir), path)
-     else:
-         return send_from_directory(os.path.join(path_dir),'index.html')
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
