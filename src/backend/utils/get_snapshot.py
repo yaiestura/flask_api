@@ -40,7 +40,7 @@ def save_snapshot(url, username, password):
         res = re.findall(r'\d+\.\d+\.\d+\.\d+|(?<=:)\d+', url)
         ip, port = res if len(res) == 2 else res[0], '80'
         with open('%s/%s:%s.jpg' % (path, str(ip), str(port)) , 'wb') as i:
-            t.write(image)
-        snapshot_url = '/snapshots/%s:%s.jpg' % (str(ip), str(port))
+            i.write(image)
+        snapshot_url = '/static/snapshots/%s:%s.jpg' % (str(ip), str(port))
     return snapshot_url
 
