@@ -16,7 +16,9 @@ if '--production' not in sys.argv:
     from flask_cors import CORS
 
 
-app = Flask(__name__)
+app = Flask(__name__,
+ static_folder = './src/backend/templates/build/static',
+ template_folder="./src/backend/templates/build")
 
 if not prod:
     CORS(app)
@@ -116,7 +118,7 @@ def snapshoturi():
 
 @app.route("/", methods=['GET'])
 def index():
-    return render_template('./src/backend/templates/build/index.html')
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
