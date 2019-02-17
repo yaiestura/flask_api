@@ -8,7 +8,7 @@ import sys
 import csv
 import datetime
 from Naked.toolshed.shell import execute_js
-from utils.discovery import discovery
+from utils.discovery import discovery, get_snapshot
 from urllib import urlopen
 import base64
 
@@ -74,13 +74,13 @@ def deviceinfo():
         response = cam.GetDeviceInformation()
         print(response)
 
-        snapshot = urlopen(cam.GetSnapshotUri()).read()
-        encoded_snapshot = base64.b64encode(snapshot)
+        # snapshot = urlopen(cam.GetSnapshotUri()).read()
+        # encoded_snapshot = base64.b64encode(snapshot)
 
         return jsonify(
             IP = ip,
             Port = port,
-            Uri = 'data:image/jpeg;base64,' + encoded_snapshot,
+            Uri = get_snapshot(cam.GetSnapshotUri(), 'admin', 'Supervisor'),
             Manufacturer = response[0],
             Model = response[1],
             FirmwareVersion = response[2],
