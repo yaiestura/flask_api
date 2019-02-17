@@ -1,22 +1,31 @@
 from flask import Flask, jsonify, request, Response, session
-from flask_cors import CORS, cross_origin
 from core import Core
 from class_core import Core_Test
 import json
 import io
 import os
+import sys
 import csv
 import datetime
 from Naked.toolshed.shell import execute_js
 
+prod = True
+
+if '--production' not in sys.argv:
+    prod = False
+    from flask_cors import CORS
+
+
 app = Flask(__name__)
-CORS(app)
+
+if not prod:
+    CORS(app)
 
 @app.route("/api/discovery", methods=['GET'])
 def discovery():
-    execute_js('./js_scripts/discovery.js')
+    execute_js('./src/backend/js_scripts/discovery.js')
     try:
-        with open('./tmp/devices.json') as json_file:
+        with open('./src/backend/tmp/devices.json') as json_file:
             data = json.load(json_file)
     except IOError: # parent of IOError, OSError *and* WindowsError where available
         data = 'Devices List haven\'t been loaded yet'
@@ -57,7 +66,6 @@ def core_load():
     return jsonify(data)
 
 @app.route("/api/deviceinfo", methods=['GET'])
-@cross_origin(origin='*')
 def deviceinfo():
     if request.method == 'GET':
         ip = request.args.get('ip')

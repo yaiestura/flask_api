@@ -12,13 +12,17 @@ import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import { reduxFirestore, getFirestore } from 'redux-firestore';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
-import fsConfig from './config/fsConfig'
+//import fsConfig from './config/fsConfig'
 
 export const store = createStore(rootReducer,
     compose(
-      applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore, logger})),
-      reactReduxFirebase(fsConfig), // Redux binding for firebase
-      reduxFirestore(fsConfig) // Redux bindings for firestore
+      applyMiddleware(thunk.withExtraArgument({
+        // getFirebase, 
+        // getFirestore, 
+        logger
+      })),
+      // reactReduxFirebase(fsConfig), // Redux binding for firebase
+      // reduxFirestore(fsConfig) // Redux bindings for firestore
     )
   );
 
