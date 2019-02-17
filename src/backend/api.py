@@ -8,7 +8,8 @@ import sys
 import csv
 import datetime
 from Naked.toolshed.shell import execute_js
-from utils.discovery import discovery, get_snapshot
+from utils.discovery import discovery
+from utils.get_snapshot import get_snapshot
 from urllib import urlopen
 import base64
 
