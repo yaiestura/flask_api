@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, Response, session
+from flask import Flask, jsonify, request, Response, session, render_template
 from core import Core
 from class_core import Core_Test
 import json
@@ -113,6 +113,11 @@ def snapshoturi():
         port = int(request.args.get('port'))
         cam = Core(ip, port, 'admin', 'Supervisor')
         return jsonify(Uri = cam.GetSnapshotUri())
+
+@app.route("/", methods=['GET'])
+def index():
+    return render_template('./src/backend/templates/build/index.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
