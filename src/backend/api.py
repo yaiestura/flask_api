@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, send_from_directory
 from core import Core
 from class_core import Core_Test
 import json
@@ -9,7 +9,7 @@ import csv
 import datetime
 
 from utils.discovery import discovery
-from utils.get_snapshot import get_snapshot
+from utils.get_snapshot import save_snapshot
 
 prod = True
 
@@ -79,7 +79,7 @@ def deviceinfo():
         return jsonify(
             IP = ip,
             Port = port,
-            Uri = get_snapshot(cam.GetSnapshotUri(), 'admin', 'Supervisor'),
+            Uri = save_snapshot(cam.GetSnapshotUri(), 'admin', 'Supervisor'),
             Manufacturer = response[0],
             Model = response[1],
             FirmwareVersion = response[2],
@@ -140,6 +140,10 @@ def snapshoturi():
         port = int(request.args.get('port'))
         cam = Core(ip, port, 'admin', 'Supervisor')
         return jsonify(Uri = cam.GetSnapshotUri())
+
+@app.route("/snapshots/<path:path>")
+def get_public_snapshot_url(path):
+    return send_from_directory('snapshots', path)
 
 
 @app.route('/', defaults={'path': ''})
