@@ -48,7 +48,7 @@ class ChooseTest extends Component {
                         <label className="lblch">Choose ONVIF Compliance Test</label>
                     </div>
                     <div className="col s2 btninfo container">
-                        <a class="btn modal-trigger gradient-45deg-indigo-blue" href="#testinfo">Test Info</a> 
+                        <a class="btn modal-trigger gradient-45deg-indigo-blue">Test Info</a> 
                           <div id="modal1" class="modal">
                               <div class="modal-content">
                                   <h4>Device Core Service Conformance Test</h4>
@@ -76,7 +76,7 @@ class ChooseTest extends Component {
                     { this.state.value === 'core'? <h6 className="lblcount">{coreTests.length} Functions Checked</h6> : <h6 className="white-text lblcount">Nothing Checked</h6> }
                 </div>
                 <div className="col s6">
-                    <h6 className="lbltime">Estimated time to test: minutes</h6>
+                    <h6 className="lbltime">Estimated time to test: 1 minute</h6>
                     <a className="btn gradient-45deg-indigo-light-blue  proceed white-text" onClick={() => {this.handleProceed()}}>Proceed</a>
                 </div>
                 </div>
