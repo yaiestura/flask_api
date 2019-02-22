@@ -1,15 +1,8 @@
-.panel {  
+.card {  
     overflow-x: hidden;
     overflow-y: hidden;
     height: 87vh;
-    margin-top: 0vh; 
-    border-radius: 20px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;        
-}
-
-.select-dropdown {
-    color:#fff;    
+    margin-top: 0vh;            
 }
 
 .lblch {

@@ -4,8 +4,8 @@ import DeviceInfo from './DeviceInfo'
 class AboutDevice extends Component {
     render() {
       return (
-        <div className="discovery teal">      
-              <DeviceInfo/>                              
+        <div className="card">      
+              <DeviceInfo className="card-content"/>                              
         </div>
       );
     }

@@ -36,8 +36,8 @@ class ChooseTest extends Component {
         const { coreTests } = this.props;
         console.log(coreTests);
           return (
-            <div className="panel teal">
-                <h5 className="white-text label">ONVIF Device Test</h5>
+            <div className="card">
+                <h5 className="label">ONVIF Device Test</h5>
                 <div className="row choose">
                     <div className="input-field col s5 offset-s1 container center-align">
                         <select className="icons" value={this.state.value} onChange={this.handleChange}>
@@ -45,10 +45,10 @@ class ChooseTest extends Component {
                             <option value="core" data-icon={core}>Core Service Test</option>
                             <option value="imaging" data-icon={hse}>Imaging Service Test</option>
                         </select>
-                        <label className="white-text lblch">Choose ONVIF Compliance Test</label>
+                        <label className="lblch">Choose ONVIF Compliance Test</label>
                     </div>
                     <div className="col s2 btninfo container">
-                        <a class="btn modal-trigger" href="#modal1">Test Info</a> 
+                        <a class="btn modal-trigger gradient-45deg-indigo-blue" href="#testinfo">Test Info</a> 
                           <div id="modal1" class="modal">
                               <div class="modal-content">
                                   <h4>Device Core Service Conformance Test</h4>
@@ -60,12 +60,12 @@ class ChooseTest extends Component {
                                   <p><a href="https://www.onvif.org/wp-content/uploads/2019/01/ONVIF_Base_Device_Test_Specification_18.12.pdf"></a></p>
                               </div>
                               <div class="modal-footer">
-                                  <a class="modal-close waves-effect waves-green btn">Agree</a>
+                                  <a class="modal-close waves-effect gradient-45deg-indigo-blue btn">Agree</a>
                               </div>
                           </div>
                     </div>
                     <div className="col s3 prevtests container">
-                        <span className="btn">Previous Tests</span>
+                        <span className="btn gradient-45deg-indigo-blue">Previous Tests</span>
                     </div>
                 </div>
                 <div className="row table">  
@@ -73,11 +73,11 @@ class ChooseTest extends Component {
                </div>
                 <div className="row summary">
                 <div className="col s6">
-                    { this.state.value === 'core'? <h6 className="white-text lblcount">{coreTests.length} Functions Checked</h6> : <h6 className="white-text lblcount">Nothing Checked</h6> }
+                    { this.state.value === 'core'? <h6 className="lblcount">{coreTests.length} Functions Checked</h6> : <h6 className="white-text lblcount">Nothing Checked</h6> }
                 </div>
                 <div className="col s6">
-                    <h6 className="white-text lbltime">Estimated time to test: minutes</h6>
-                    <a className="btn proceed white-text" onClick={() => {this.handleProceed()}}>Proceed</a>
+                    <h6 className="lbltime">Estimated time to test: minutes</h6>
+                    <a className="btn gradient-45deg-indigo-light-blue  proceed white-text" onClick={() => {this.handleProceed()}}>Proceed</a>
                 </div>
                 </div>
             </div>

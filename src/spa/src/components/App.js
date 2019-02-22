@@ -12,18 +12,16 @@ class App extends Component {
     return (      
       <BrowserRouter>
         <div className="App">      
-          <div className="navbar show-on-medium-and-up">            
+          <div className="navbar navbar-fixed">            
             <Navbar />
           </div>
           <div className="row dashboard"> 
-            <div className="col l1 sidebar">
-              <Sidebar/>
-            </div> 
-            <div className="col l11 dashboard">
-            <Switch>   
-              <Route path='/discoverydashboard'component={Dashboard} />
-              <Route path='/testdashboard' component={TestDashboard} />            
-            </Switch>
+            <Sidebar/>
+            <div className="col l10 dashboard offset-l2">
+              <Switch>   
+                <Route path='/discoverydashboard'component={Dashboard} />
+                <Route path='/testdashboard' component={TestDashboard} />            
+              </Switch>
             </div>   
           </div>
         </div>

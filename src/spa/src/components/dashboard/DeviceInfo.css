@@ -13,7 +13,7 @@
 }
 
 .collection-item {
-    font-family: 'Assistant';
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: normal;
     line-height: normal;
@@ -21,17 +21,8 @@
     padding-right: 5vh;     
 }
 
-.deviceinfo {  
-    overflow-x: hidden;
-    overflow-y: hidden;
-    height: 87vh;
-    margin: 0vh;    
-}
 
 .label {
-    font-family: 'Assistant';
-    font-style: normal;
-    font-weight: normal;
     line-height: normal;
     padding-left: 5%;
     margin-top: 5px;

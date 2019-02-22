@@ -1,29 +1,483 @@
-/* The sidebar menu */
+/*
+  Badge Styling
+*/
 
-.w3-sidebar {
+span.badge
+{
+    color: #fff;
+}
+span.badge.pill
+{
+    font-size: .8rem;
+    line-height: 20px;
+
+    min-width: 1rem;
+    height: 20px;
+
+    border-radius: 50%;
+    border-radius: 9px;
+}
+
+.sidenav span.badge {
+    margin-top: -webkit-calc(24px - 11px);
+    margin-top: -moz-calc(24px - 11px);
+    margin-top: calc(24px - 11px);
+}
+
+span.badge.pill {
+    font-size: .8rem;
+    line-height: 20px;
+    min-width: 1rem;
+    height: 20px;
+    border-radius: 50%;
+    border-radius: 9px;
+}
+
+.mr-10 {
+    margin-right: 10% !important;
+}
+
+.float-right {
+    float: right !important;
+}
+
+.orange {
+    background-color: #ff9800 !important;
+}
+
+.collapsible span.badge {
+    margin-left: auto;
+}
+
+/*
+  Gradient Sidebar color mixin
+*/
+
+.gradient-45deg-deep-purple-blue
+{
+      background: #6200ea;
+      background: -webkit-linear-gradient(45deg, #6200ea, #1976d2) !important;
+      background: -moz- oldlinear-gradient(45deg, #6200ea, #1976d2) !important;
+      background:      -o-linear-gradient(45deg, #6200ea, #1976d2) !important;
+      background:         linear-gradient(45deg, #6200ea, #1976d2) !important;
+}
+.gradient-45deg-deep-purple-blue.gradient-shadow
+{
+    -webkit-box-shadow: 0 6px 20px 0 rgba(25, 118, 210, .5) !important;
+            box-shadow: 0 6px 20px 0 rgba(25, 118, 210, .5) !important;
+}
+
+/*
+  SideNav
+*/
+
+.sidenav-main
+{
     position: fixed;
-    margin: 0%;
+    z-index: 999;
+    top: 0;
+
+    width: 250px;
     height: 100%;
-    left: 0%;
+
+    -webkit-transition: .3s ease all;
+       -moz-transition: .3s ease all;
+         -o-transition: .3s ease all;
+            transition: .3s ease all;
+}
+.sidenav-main span.badge.new
+{
+    line-height: 20px;
+
+    margin-top: 11px;
+}
+
+.brand-sidebar
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: inherit;
+    height: 64px;
+
+    background: #fff;
+    -webkit-box-shadow: 0 4px 7px 0 rgba(0, 0, 0, .2);
+            box-shadow: 0 4px 7px 0 rgba(0, 0, 0, .2);
+
+    -webkit-backface-visibility: hidden;
+       -moz-backface-visibility: hidden;
+            backface-visibility: hidden;
+}
+.brand-sidebar .logo-wrapper
+{
+    font-size: 3rem;
+    line-height: 17px !important;
+
+    margin: 0;
+
+    white-space: nowrap;
+}
+.brand-sidebar .logo-wrapper a.brand-logo img
+{
+    height: 18px;
+}
+.brand-sidebar .logo-wrapper a.navbar-toggler
+{
+    position: absolute;
+    top: 7px;
+    right: 22px;
+}
+.brand-sidebar .logo-wrapper a.navbar-toggler i
+{
+    font-size: 15px;
+    line-height: 56px;
+
+    display: block;
+
+    height: 56px;
+
+    color: #333;
+}
+.brand-sidebar span.logo-text
+{
+    font-size: 24px;
+
+    visibility: visible;
+
+    padding-left: 8px;
+
+    -webkit-transition: opacity .2s linear;
+       -moz-transition: opacity .2s linear;
+         -o-transition: opacity .2s linear;
+            transition: opacity .2s linear;
+
+    opacity: 1;
+}
+.brand-sidebar .brand-logo
+{
+    font-size: 2.1rem;
+    line-height: 0;
+
+    position: absolute;
+
+    display: inline-block;
+
+    margin: 1px 0;
+    padding: 22px 12px;
+
+    color: #333;
+}
+.brand-sidebar .brand-logo img
+{
+    height: 18px;
+}
+.brand-sidebar .brand-logo.center
+{
+    left: 50%;
+
+    -webkit-transform: translateX(-50%);
+       -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+         -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+@media only screen and (max-width: 992px)
+{
+    .brand-sidebar .brand-logo
+    {
+        left: 50%;
+
+        -webkit-transform: translateX(-50%);
+           -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+             -o-transform: translateX(-50%);
+                transform: translateX(-50%);
+    }
+    .brand-sidebar .brand-logo.left,
+    .brand-sidebar .brand-logo.right
+    {
+        padding: 0;
+
+        -webkit-transform: none;
+           -moz-transform: none;
+            -ms-transform: none;
+             -o-transform: none;
+                transform: none;
+    }
+    .brand-sidebar .brand-logo.left
+    {
+        left: .5rem;
+    }
+    .brand-sidebar .brand-logo.right
+    {
+        right: .5rem;
+        left: auto;
+    }
+}
+.brand-sidebar .brand-logo.right
+{
+    right: .5rem;
+
+    padding: 0;
+}
+.brand-sidebar .brand-logo i,
+.brand-sidebar .brand-logo [class^='mdi-'],
+.brand-sidebar .brand-logo [class*='mdi-'],
+.brand-sidebar .brand-logo i.material-icons
+{
+    float: left;
+
+    margin-right: 15px;
+}
+
+.sidenav
+{
     top: 64px;
+
+    overflow: hidden;
+
+    width: inherit;
+    height: 100%;
+
+    -webkit-transition: auto !important;
+       -moz-transition: auto !important;
+         -o-transition: auto !important;
+            transition: auto !important;
+
+    border: none;
+    -webkit-box-shadow: 0 4px 7px 0 rgba(0, 0, 0, .2);
+            box-shadow: 0 4px 7px 0 rgba(0, 0, 0, .2);
+
+    -webkit-backface-visibility: hidden;
+       -moz-backface-visibility: hidden;
+            backface-visibility: hidden;
+}
+.sidenav.native-scroll
+{
+    overflow-y: scroll !important;
+}
+.sidenav a
+{
+    line-height: 42px;
+
+    height: 42px;
+}
+.sidenav .navigation-header
+{
+    font-size: .85rem;
+    font-weight: 600;
+
+    margin-top: 10px;
+    padding: 0 17px;
+
+    text-transform: uppercase;
+}
+.sidenav .navigation-header .navigation-header-icon
+{
+    display: none;
+}
+.sidenav .navigation-header .navigation-header-text
+{
+    font-size: .85rem;
+    font-weight: 600;
+    line-height: 30px;
+
+    height: 30px;
+    margin: 0;
+    padding: 0 !important;
+
+    color: #969696;
+}
+.sidenav .navigation-header .navigation-header-text:hover
+{
+    background-color: transparent !important;
+}
+.sidenav li
+{
+    line-height: 44px;
+
+    padding: 0;
+}
+.sidenav li a
+{
+    color: rgba(0, 0, 0, .87);
+}
+.sidenav li a i
+{
+    font-size: 1.4rem;
+    line-height: inherit;
+
+    display: block;
+    float: left;
+
+    width: 2rem;
+    margin-right: 1rem;
+
+    text-align: center;
+}
+.sidenav .collapsible-header
+{
+    font-weight: 400;
+
+    margin: 0;
+    /* Sidebar nav open close icons*/
+}
+.sidenav .collapsible-header:after
+{
+    font-family: 'Material Icons';
+    font-size: 18px;
+
+    position: absolute;
+    right: 16px;
+
+    content: 'keyboard_arrow_right';
+    transition: transform .3s ease-in-out, opacity .25s ease-in-out .1s, -webkit-transform .3s ease-in-out;
+
+    color: #afafaf;
+}
+.sidenav .collapsible-header.active:after
+{
+    content: 'keyboard_arrow_down';
+}
+.sidenav li .collapsible-body
+{
+    background: transparent;
+}
+.sidenav li .collapsible-body a i
+{
+    font-size: .7rem;
+}
+.sidenav li a.active
+{
+    color: #333;
+    background: #fff;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+.sidenav li a.active i
+{
+    color: #333;
+}
+.sidenav li:not(.active).open
+{
+    background-color: rgba(0, 0, 0, .035);
+}
+.sidenav li.active
+{
+    background-color: transparent;
+}
+.sidenav li.active > .collapsible-header:after
+{
+    -webkit-transform: rotate(90deg);
+       -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+         -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+}
+.sidenav li.open
+{
+    background: rgba(0, 0, 0, .035);
+}
+.sidenav li > a,
+.sidenav li a.collapsible-header
+{
+    font-weight: 400;
+    line-height: 44px;
+
+    height: 44px;
+    padding: 0 16px !important;
+}
+.sidenav li > a > i.material-icons,
+.sidenav li a.collapsible-header > i.material-icons
+{
+    line-height: 44px;
+
+    height: 44px;
+    margin: 0 20px 0 0;
+}
+.sidenav li > a:not(.active):hover
+{
+    background-color: rgba(0, 0, 0, .035) !important;
+}
+.sidenav .collapsible-body > ul:not(.collapsible) > li.active,
+.sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active
+{
+    background-color: #e3f2fd;
+}
+.sidenav .collapsible-body > ul:not(.collapsible) > li.active a,
+.sidenav .collapsible-body > ul:not(.collapsible) > li.active i,
+.sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active a,
+.sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active i
+{
+    color: #2196f3;
+    background: none;
 }
 
-.line-separator{
-    height: 1px;    
-    background: rosybrown;    
-    border-bottom: 1px solid #fff;    
+.sidenav-dark
+{
+    background: #2c323f;
 }
-
-.menu-item {
-    width: 100%;
+.sidenav-dark .brand-sidebar
+{
+    background: #2c323f;
+    -webkit-box-shadow: 0 -4px 7px 1px rgba(0, 0, 0, .2);
+            box-shadow: 0 -4px 7px 1px rgba(0, 0, 0, .2);
 }
-
-.divider{
-    margin: 0%;
-    height: 1px;    
-    background: white;            
+.sidenav-dark.sidenav-main .sidenav
+{
+    background-color: transparent;
 }
-
-    
-
-
+.sidenav-dark.sidenav-main .sidenav .collapsible-body > ul:not(.collapsible) > li.active,
+.sidenav-dark.sidenav-main .sidenav.fixed .collapsible-body > ul:not(.collapsible) > li.active
+{
+    background: #2196f3;
+}
+.sidenav-dark.sidenav-main .sidenav li .navigation-header-text
+{
+    color: #b0bec5;
+}
+.sidenav-dark.sidenav-main .sidenav li > a,
+.sidenav-dark.sidenav-main .sidenav li .more-text
+{
+    color: #fff;
+}
+.sidenav-dark.sidenav-main .sidenav li > a > i,
+.sidenav-dark.sidenav-main .sidenav li .more-text > i
+{
+    color: #fff;
+}
+.sidenav-dark.sidenav-main .sidenav li.bold > a:not(.active):hover,
+.sidenav-dark.sidenav-main .sidenav li:not(.active).open
+{
+    background-color: rgba(0, 0, 0, .1) !important;
+}
+.sidenav-dark.sidenav-main .collapsible
+{
+    border: none;
+}
+.sidenav-dark.sidenav-main .brand-sidebar .brand-logo,
+.sidenav-dark.sidenav-main .brand-sidebar .logo-wrapper a.navbar-toggler i
+{
+    color: #fff;
+}
+.sidenav-dark.sidenav-gradient .brand-sidebar
+{
+    background: transparent;
+}
+.sidenav-dark.sidenav-gradient.fixed .collapsible-body
+{
+    background: transparent;
+}
+.sidenav-dark.sidenav-gradient.sidenav-main .sidenav li .navigation-header-text
+{
+    color: #ececec;
+}
+.sidenav-dark .collapsible-header:after
+{
+    color: #ececec;
+}
+.sidenav-dark .ps__rail-y:hover
+{
+    background: transparent;
+}

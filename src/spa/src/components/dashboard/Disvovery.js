@@ -5,9 +5,8 @@ import './Discovery.css'
 class Discovery extends Component {
     render() {
       return (
-        <div className="discovery teal">
-          <h5 className="white-text label">Discovered devices</h5>                
-          <Devices/>                                       
+        <div className="card">                          
+          <Devices className="card-content"/>                                       
         </div>
       );
     }

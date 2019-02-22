@@ -17,10 +17,10 @@ class TestDashboard extends Component {
     console.log(core_tests);
     return (
       <div className="row">
-        <div className="col s4 discovery">
+        <div className="col l4 m4 s12">
               <DiscoveredDevices/>              
             </div>
-            <div className="col s8 choosetest">
+            <div className="col l8 m8 s12">
               {showComponents===true ? <ChooseTest coreTests={core_tests}/> : <Report/>}                           
             </div>
       </div>

@@ -1,5 +1,103 @@
-.nav-wrapper {
-  font-family: 'Assistant';
+.gradient-45deg-indigo-light-blue
+{
+      background: #3949ab;
+      background: -webkit-linear-gradient(45deg, #3949ab, #4fc3f7) !important;
+      background: -moz- oldlinear-gradient(45deg, #3949ab, #4fc3f7) !important;
+      background:      -o-linear-gradient(45deg, #3949ab, #4fc3f7) !important;
+      background:         linear-gradient(45deg, #3949ab, #4fc3f7) !important;
+}
+.gradient-45deg-indigo-light-blue.gradient-shadow
+{
+    -webkit-box-shadow: 0 6px 20px 0 rgba(79, 195, 247, .5) !important;
+            box-shadow: 0 6px 20px 0 rgba(79, 195, 247, .5) !important;
+}
+
+.gradient-45deg-indigo-blue
+{
+      background: #303f9f;
+      background: -webkit-linear-gradient(45deg, #303f9f, #1976d2) !important;
+      background: -moz- oldlinear-gradient(45deg, #303f9f, #1976d2) !important;
+      background:      -o-linear-gradient(45deg, #303f9f, #1976d2) !important;
+      background:         linear-gradient(45deg, #303f9f, #1976d2) !important;
+}
+.gradient-45deg-indigo-blue.gradient-shadow
+{
+    -webkit-box-shadow: 0 6px 20px 0 rgba(25, 118, 210, .5) !important;
+            box-shadow: 0 6px 20px 0 rgba(25, 118, 210, .5) !important;
+}
+
+.navbar-dark
+{
+    background: #2c323f;
+}
+
+.navbar-dark.navbar-gradient
+{
+    background: transparent;
+}
+
+.navbar-fixed {
+  position: relative;
+  height: 56px;
+  z-index: 997;
+}
+
+.navbar-fixed nav {
+  position: fixed;
+}
+
+.navbar .navbar-light
+{
+    background: #fff;
+}
+.navbar .navbar-light ul a
+{
+    color: rgba(0, 0, 0, .87);
+}
+
+.nav-collapsible.nav-collapsed span.badge.pill
+{
+    visibility: hidden;
+
+    -webkit-transition: visibility 0s 2s, opacity .05s linear;
+       -moz-transition: visibility 0s 2s, opacity .05s linear;
+         -o-transition: visibility 0s 2s, opacity .05s linear;
+            transition: visibility 0s 2s, opacity .05s linear;
+
+    opacity: 0;
+}
+
+.nav-collapsible span.badge
+{
+    color: #fff;
+}
+.nav-collapsible span.badge.pill
+{
+    position: absolute;
+    right: 10px;
+
+    visibility: visible;
+    float: none;
+
+    -webkit-transition: opacity .2s linear;
+       -moz-transition: opacity .2s linear;
+         -o-transition: opacity .2s linear;
+            transition: opacity .2s linear;
+
+    opacity: 1;
+}
+
+@media only screen and (min-width: 601px) {
+  nav.nav-extended .nav-wrapper {
+    min-height: 64px;
+  }
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 64px;
+    line-height: 64px;
+  }
+  .navbar-fixed {
+    height: 64px;
+  }
 }
 
 .logo {
@@ -15,3 +113,4 @@
 .routes {
   font-size: 1.5rem;
 }
+

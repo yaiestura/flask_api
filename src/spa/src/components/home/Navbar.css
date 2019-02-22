@@ -1,12 +1,32 @@
-header{
-    background: url(images/miem.jpg);
-    background-size: cover;
-    background-position: center;
-    min-height: 800px;
-  }
+header {
+  background: url(images/miem.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 800px;
+}
+
+
+
+.navbar-list.left {
+margin-left: 5%
+}
+
+.gradient-45deg-indigo-light-blue {
+  background: #3949ab;
+  background: -webkit-linear-gradient(45deg, #3949ab, #4fc3f7) !important;
+  background: -moz- oldlinear-gradient(45deg, #3949ab, #4fc3f7) !important;
+  background: -o-linear-gradient(45deg, #3949ab, #4fc3f7) !important;
+  background: linear-gradient(45deg, #3949ab, #4fc3f7) !important;
+}
+
+.gradient-45deg-indigo-light-blue.gradient-shadow {
+  -webkit-box-shadow: 0 6px 20px 0 rgba(79, 195, 247, .5) !important;
+  box-shadow: 0 6px 20px 0 rgba(79, 195, 247, .5) !important;
+}
+
 @media screen and (max-width: 670px)
 {
-    header{
-      min-height: 500px;
-    }
+  header {
+    min-height: 500px;
   }
+}
