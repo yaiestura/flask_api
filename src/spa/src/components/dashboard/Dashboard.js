@@ -15,7 +15,7 @@ class Dashboard extends Component {
     this.props.dispatch(fetchTest('core'));    
   }
   render() {
-    const { core_tests } = this.props;
+    const { core_tests, active } = this.props;
     console.log(core_tests);
     return (
       <div className="row">
@@ -23,7 +23,7 @@ class Dashboard extends Component {
               <Discovery/>              
             </div>
             <div className="col l8 m8 s12">
-              <AboutDevice/>                         
+              { !active ? null : <AboutDevice/> }                         
             </div>
       </div>
     )
@@ -31,7 +31,8 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({    
-  core_tests: state.coreTest.core_tests  
+  core_tests: state.coreTest.core_tests,
+  active: state.deviceInfo.active
 })
 
 export default connect(mapStateToProps)(Dashboard);

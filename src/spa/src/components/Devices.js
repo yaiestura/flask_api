@@ -26,7 +26,7 @@ class Devices extends Component {
         const { devices, isFetching, error } = this.props;
         const deviceItems = devices && devices.map((device) =>            
             <div className="collection hoverable" key={ device.id }>             
-                <a className={`${this.state.selected == device ?'activeCam':'gradient-45deg-deep-purple-blue white-text'} collection-item hoverable z-depth-3`}
+                <a className={`${this.state.selected == device ?'white black-text':'gradient-45deg-deep-purple-blue white-text'} collection-item hoverable z-depth-3`}
                 onClick={() => this.handleClick(device)}>
                 <p>IP: { device.ip }</p>
                 <p>Port: { device.port }</p>

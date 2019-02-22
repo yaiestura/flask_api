@@ -28,16 +28,6 @@
     margin: 0vh;    
 }
 
-.collection-item .activeCam{
-    background: #fff;
-    color: #000;   
-}
-
-.activeCam {
-    background: #fff;
-    color: #000;
-}
-
 .preloader {
     height: 80vh;
     margin: 0vh;  
