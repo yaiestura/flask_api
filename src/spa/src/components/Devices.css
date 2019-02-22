@@ -5,7 +5,7 @@
 }
 
 .collection-item {
-    font-family: 'Assistant';
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: normal;
     line-height: normal;
@@ -28,9 +28,14 @@
     margin: 0vh;    
 }
 
+.collection-item .activeCam{
+    background: #fff;
+    color: #000;   
+}
+
 .activeCam {
     background: #fff;
-    color: #6200ea;
+    color: #000;
 }
 
 .preloader {
