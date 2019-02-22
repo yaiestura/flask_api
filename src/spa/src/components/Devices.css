@@ -22,15 +22,15 @@
       background:         linear-gradient(45deg, #6200ea, #1976d2) !important;
 }
 
-.active {
-    background: #fff;
-    color: #6200ea;
-}
-
 .devices {  
     overflow-y: scroll;
     height: 80vh;
     margin: 0vh;    
+}
+
+.activeCam {
+    background: #fff;
+    color: #6200ea;
 }
 
 .preloader {
