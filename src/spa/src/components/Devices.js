@@ -6,6 +6,9 @@ import Preloader from './dashboard/Preloader'
 import './Devices.css'
 
 class Devices extends Component {    
+    state = {
+        selected: null
+    }
 
     componentDidMount() {
         this.props.dispatch(fetchDevices());
@@ -14,6 +17,7 @@ class Devices extends Component {
 
     handleClick(device) {
         this.props.dispatch(fetchData(device));
+        this.setState({selected: device})
         console.log(device); 
         console.log(this.props);       
     }
@@ -22,7 +26,8 @@ class Devices extends Component {
         const { devices, isFetching, error } = this.props;
         const deviceItems = devices && devices.map((device) =>            
             <div className="collection hoverable" key={ device.id }>             
-                <a className="collection-item gradient-45deg-deep-purple-blue white-text hoverable z-depth-3" onClick={() => this.handleClick(device)}>
+                <a className={`${this.state.selected == device ?'white teal-text':'gradient-45deg-deep-purple-blue white-text'} collection-item hoverable z-depth-3`}
+                onClick={() => this.handleClick(device)}>
                 <p>IP: { device.ip }</p>
                 <p>Port: { device.port }</p>
                 </a>               
@@ -38,8 +43,7 @@ class Devices extends Component {
             return <Preloader className="preloader center-align"/>;
         }
         return (
-            <div className="devices"> 
-                <h5 className="label">Discovered devices:</h5>                                             
+            <div className="devices">                                                             
                 { deviceItems }             
             </div>            
         )

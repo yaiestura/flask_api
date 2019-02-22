@@ -36,7 +36,7 @@ class Sidebar extends Component {
             </a>
             <div className="collapsible-body">
               <ul className="collapsible collapsible-sub" data-collapsible="accordion">
-                <NavLink activeStyle={{ background: 'white' }} to="/discoverydashboard">
+                <NavLink to="/discoverydashboard">
                   <li>
                     <a className="collapsible-body">
                       <i className="material-icons white-text">radio_button_unchecked</i>
@@ -44,7 +44,7 @@ class Sidebar extends Component {
                     </a>
                   </li>
                 </NavLink>
-                <NavLink activeStyle={{ background: 'white' }} to="/testdashboard">
+                <NavLink to="/testdashboard">
                   <li>
                     <a className="collapsible-body">
                       <i className="material-icons white-text">radio_button_unchecked</i>

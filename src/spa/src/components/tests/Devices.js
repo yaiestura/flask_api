@@ -4,7 +4,7 @@ import {makeActiveCam} from '../../store/actions/fetchFunction'
 import './Devices.css'
 
 class Devices extends Component {    
-
+    
     handleClick(device) {
         this.props.dispatch(makeActiveCam(device));
         console.log(device); 
@@ -28,8 +28,7 @@ class Devices extends Component {
             return <div>No devices were found, please resolve VPN connection</div>;
         }           
         return (
-            <div className="devices">    
-                <h5 className="label">Yet Discovered devices:</h5>                                            
+            <div className="devices">                                                         
                 { deviceItems }             
             </div>            
         )
