@@ -59,10 +59,12 @@ def core_test(method_name):
 
 @app.route("/api/core_test/load", methods=['GET'])
 def core_load():
-    with open('core.json', 'r') as f:
-        data = json.load(f)
-        print data
-    print jsonify(data)
+    try:
+        with open('/tests/core.json', 'r') as f:
+            data = json.load(f)
+    # parent of IOError, OSError *and* WindowsError where available
+    except IOError: 
+        data = 'Error. Core Test can not be loaded.'
     return jsonify(data)
 
 @app.route("/api/deviceinfo", methods=['GET'])
