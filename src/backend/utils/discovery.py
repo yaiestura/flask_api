@@ -1,7 +1,7 @@
 from wsdiscovery import WSDiscovery
 import re
 
-
+# need to exclude two cameras .13 and .0
 def discovery():
     cameras = []
 
