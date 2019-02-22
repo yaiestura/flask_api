@@ -61,6 +61,7 @@ span.badge.pill {
       background:      -o-linear-gradient(45deg, #6200ea, #1976d2) !important;
       background:         linear-gradient(45deg, #6200ea, #1976d2) !important;
 }
+
 .gradient-45deg-deep-purple-blue.gradient-shadow
 {
     -webkit-box-shadow: 0 6px 20px 0 rgba(25, 118, 210, .5) !important;

@@ -29,25 +29,25 @@ class Sidebar extends Component {
             <a className="navigation-header-text">Dashboard</a>
           </li>
           <li className="bold">
-            <a className="collapsible-header waves-effect waves-cyan " href="#">
-              <i className="material-icons">settings_input_svideo</i>
-              <span className="menu-title" data-i18n="">Dashboard</span>
+            <a className="collapsible-header waves-effect waves-white">
+              <i className="material-icons">cast</i>
+              <span className="menu-title">Dashboard</span>
               <span class="badge badge pill orange float-right mr-10">2</span>              
             </a>
             <div className="collapsible-body">
               <ul className="collapsible collapsible-sub" data-collapsible="accordion">
-                <NavLink to="/discoverydashboard">
+                <NavLink activeStyle={{ background: 'white' }} to="/discoverydashboard">
                   <li>
-                    <a className="collapsible-body" data-i18n="">
-                      <i className="material-icons white-text">cast</i>
+                    <a className="collapsible-body">
+                      <i className="material-icons white-text">radio_button_unchecked</i>
                       <span>WS-Discovery</span>
                     </a>
                   </li>
                 </NavLink>
-                <NavLink to="/testdashboard">
+                <NavLink activeStyle={{ background: 'white' }} to="/testdashboard">
                   <li>
-                    <a className="collapsible-body" data-i18n="">
-                      <i className="material-icons white-text">layers</i>
+                    <a className="collapsible-body">
+                      <i className="material-icons white-text">radio_button_unchecked</i>
                       <span>Device Test</span>
                     </a>
                   </li>
@@ -58,26 +58,26 @@ class Sidebar extends Component {
           <li className="bold">
             <a className="waves-effect waves-cyan">
               <i className="material-icons white-text">cloud_queue</i>
-              <span className="menu-title" data-i18n="">Cloud Database</span>
+              <span className="menu-title">Cloud Database</span>
             </a>
           </li>
           <li className="bold">
             <a className="waves-effect waves-cyan">
               <i className="material-icons white-text">mail_outline</i>
-              <span className="menu-title" data-i18n="">Notifications</span>
+              <span className="menu-title">Notifications</span>
               <span className="badge badge pill purple float-right mr-10">1</span>
             </a>
           </li>
           <li className="bold">
             <a className="waves-effect waves-cyan">
               <i className="material-icons white-text">videocam</i>
-              <span className="menu-title" data-i18n="">PTZ&RTSP Tests</span>
+              <span className="menu-title">PTZ&RTSP Tests</span>
             </a>
           </li>
           <li className="bold">
             <a className="waves-effect waves-cyan">
               <i className="material-icons white-text">settings</i>
-              <span className="menu-title" data-i18n="">Settings</span>
+              <span className="menu-title">Settings</span>
             </a>
           </li>
         </ul> 

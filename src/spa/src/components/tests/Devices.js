@@ -15,7 +15,7 @@ class Devices extends Component {
         const { devices, error } = this.props;
         const deviceItems = devices && devices.map((device) =>            
             <div className="collection hoverable" key={ device.id }>             
-                <a className="collection-item white teal-text hoverable z-depth-3" onClick={() => this.handleClick(device)}>
+                <a className="collection-item gradient-45deg-deep-purple-blue white-text hoverable z-depth-3" onClick={() => this.handleClick(device)}>
                 <p>IP: { device.ip }</p>
                 <p>Port: { device.port }</p>
                 </a>               
@@ -28,7 +28,8 @@ class Devices extends Component {
             return <div>No devices were found, please resolve VPN connection</div>;
         }           
         return (
-            <div className="devices">                                              
+            <div className="devices">    
+                <h5 className="label">Yet Discovered devices:</h5>                                            
                 { deviceItems }             
             </div>            
         )

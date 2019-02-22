@@ -13,6 +13,15 @@
     padding-right: 5vh;     
 }
 
+.gradient-45deg-deep-purple-blue
+{
+      background: #6200ea;
+      background: -webkit-linear-gradient(45deg, #6200ea, #1976d2) !important;
+      background: -moz- oldlinear-gradient(45deg, #6200ea, #1976d2) !important;
+      background:      -o-linear-gradient(45deg, #6200ea, #1976d2) !important;
+      background:         linear-gradient(45deg, #6200ea, #1976d2) !important;
+}
+
 .devices {  
     overflow-y: scroll;
     height: 80vh;
