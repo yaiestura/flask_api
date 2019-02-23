@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App'
-import TestDashboard from './components/tests/TestDashboard'
+import Docs from './components/docs/Docs'
 import Home from './components/home/Home'
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
@@ -32,7 +32,8 @@ ReactDOM.render(
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={ Home }/>
-        <Route path="/discoverydashboard" component={ App }/>        
+        <Route exact path="/docs" component={ Docs }/>
+        <Route path="/discovery" component={ App }/>        
       </Switch>
     </BrowserRouter>
   </Provider>,

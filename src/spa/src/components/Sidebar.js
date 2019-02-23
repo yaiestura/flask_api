@@ -32,11 +32,11 @@ class Sidebar extends Component {
             <a className="collapsible-header waves-effect waves-white">
               <i className="material-icons">cast</i>
               <span className="menu-title">Dashboard</span>
-              <span class="badge badge pill orange float-right mr-10">2</span>              
+              <span class="badge badge pill orange float-right mr-10">3</span>              
             </a>
             <div className="collapsible-body">
               <ul className="collapsible collapsible-sub" data-collapsible="accordion">
-                <NavLink to="/discoverydashboard">
+                <NavLink to="/discovery">
                   <li>
                     <a className="collapsible-body">
                       <i className="material-icons white-text">radio_button_unchecked</i>
@@ -44,14 +44,22 @@ class Sidebar extends Component {
                     </a>
                   </li>
                 </NavLink>
-                <NavLink to="/testdashboard">
+                <NavLink to="/test">
                   <li>
                     <a className="collapsible-body">
                       <i className="material-icons white-text">radio_button_unchecked</i>
                       <span>Device Test</span>
                     </a>
                   </li>
-                </NavLink>                
+                </NavLink> 
+                <NavLink to="/live">
+                  <li>
+                    <a className="collapsible-body">
+                      <i className="material-icons white-text">radio_button_unchecked</i>
+                      <span>Live Video</span>
+                    </a>
+                  </li>
+                </NavLink>               
               </ul>
             </div>
           </li>
