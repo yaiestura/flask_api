@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import Preloader from '../dashboard/Preloader'
 import './RTSPStream.css'
 

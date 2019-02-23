@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+import M from 'materialize-css'
 import './Docs.css'
 
 class Docs extends Component {
