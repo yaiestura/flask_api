@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchDevices } from '../store/actions/fetchDevice'
 import { fetchData } from '../store/actions/deviceInfo'
 import Preloader from './dashboard/Preloader'
 import './Devices.css'
@@ -8,11 +7,6 @@ import './Devices.css'
 class Devices extends Component {    
     state = {
         selected: null
-    }
-
-    componentDidMount() {
-        this.props.dispatch(fetchDevices());
-        console.log(this.props);
     }
 
     handleClick(device) {
@@ -26,7 +20,7 @@ class Devices extends Component {
         const { devices, isFetching, error } = this.props;
         const deviceItems = devices && devices.map((device) =>            
             <div className="collection hoverable" key={ device.id }>             
-                <a className={`${this.state.selected == device ?'white black-text':'gradient-45deg-deep-purple-blue white-text'} collection-item hoverable z-depth-3`}
+                <a className={`${this.state.selected == device ?'white deep-purple-text text-accent-4':'gradient-45deg-deep-purple-blue white-text'} collection-item hoverable z-depth-3`}
                 onClick={() => this.handleClick(device)}>
                 <p>IP: { device.ip }</p>
                 <p>Port: { device.port }</p>

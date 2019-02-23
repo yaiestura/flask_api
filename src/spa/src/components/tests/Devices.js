@@ -4,9 +4,13 @@ import {makeActiveCam} from '../../store/actions/fetchFunction'
 import './Devices.css'
 
 class Devices extends Component {    
-    
+    state = {
+        selected: null
+    }
+
     handleClick(device) {
         this.props.dispatch(makeActiveCam(device));
+        this.setState({selected: device})
         console.log(device); 
         console.log(this.props);       
     }
@@ -15,7 +19,8 @@ class Devices extends Component {
         const { devices, error } = this.props;
         const deviceItems = devices && devices.map((device) =>            
             <div className="collection hoverable" key={ device.id }>             
-                <a className="collection-item gradient-45deg-deep-purple-blue white-text hoverable z-depth-3" onClick={() => this.handleClick(device)}>
+                <a className={`${this.state.selected == device ?'white deep-purple-text text-accent-4':'gradient-45deg-deep-purple-blue white-text'} collection-item hoverable z-depth-3`}
+                onClick={() => this.handleClick(device)}>
                 <p>IP: { device.ip }</p>
                 <p>Port: { device.port }</p>
                 </a>               
