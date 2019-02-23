@@ -30,7 +30,7 @@ class Discovery extends Component {
 
       return (
         <div className="card">  
-          <div className="row">
+          <div className="row top-row">
             <div className="col l10 m10 s10">
               <h5 className="label left">Discovered devices:</h5> 
             </div>
@@ -42,7 +42,7 @@ class Discovery extends Component {
             </div>
           </div>  
           <div className="row"> 
-            <div className="col l12 m12 s12">                          
+            <div className="col l12 m12 s12 bottom-col">                          
               <Devices className="card-content"/> 
             </div>
           </div>                                       

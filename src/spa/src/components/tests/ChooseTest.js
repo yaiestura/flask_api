@@ -48,8 +48,8 @@ class ChooseTest extends Component {
                         <label className="lblch">Choose ONVIF Compliance Test</label>
                     </div>
                     <div className="col s2 btninfo container">
-                        <a class="btn modal-trigger gradient-45deg-indigo-blue">Test Info</a> 
-                          <div id="modal1" class="modal">
+                        <a class="btn modal-trigger gradient-45deg-deep-purple-blue" href="#info">Test Info</a> 
+                          <div id="info" class="modal">
                               <div class="modal-content">
                                   <h4>Device Core Service Conformance Test</h4>
                                   <p>
@@ -65,7 +65,7 @@ class ChooseTest extends Component {
                           </div>
                     </div>
                     <div className="col s3 prevtests container">
-                        <span className="btn gradient-45deg-indigo-blue">Previous Tests</span>
+                        <span className="btn gradient-45deg-deep-purple-blue">Previous Tests</span>
                     </div>
                 </div>
                 <div className="row table">  
@@ -77,7 +77,7 @@ class ChooseTest extends Component {
                 </div>
                 <div className="col s6">
                     <h6 className="lbltime">Estimated time to test: 1 minute</h6>
-                    <a className="btn gradient-45deg-indigo-light-blue  proceed white-text" onClick={() => {this.handleProceed()}}>Proceed</a>
+                    <a className="btn gradient-45deg-deep-purple-blue  proceed white-text" onClick={() => {this.handleProceed()}}>Proceed</a>
                 </div>
                 </div>
             </div>

@@ -46,14 +46,14 @@ class Report extends Component {
     <p>{item}</p>
   ))
   return (
-    <div className="report teal white-text">
+    <div className="card">
       <h5>Testing Report:</h5> 
-      <a className="btn start white-text" onClick={() => {this.handleStart()}}>Start</a>
+      <a className="btn start gradient-45deg-deep-purple-blue white-text" onClick={() => {this.handleStart()}}>Start</a>
       <p>Test Time: {new Date().toJSON()}</p>
       <p>Device IP: {activeCam!==null ? activeCam.ip : null}</p>
       <p>Device Port: {activeCam!==null ? activeCam.port : null}</p>
       {resultData}   
-      <a className="btn proceed white-text" onClick={() => {this.handleBack()}}>Back</a>
+      <a className="btn proceed gradient-45deg-deep-purple-blue white-text" onClick={() => {this.handleBack()}}>Back</a>
     </div>
   )
   }

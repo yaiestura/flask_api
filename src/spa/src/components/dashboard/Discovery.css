@@ -1,0 +1,17 @@
+.preloader {
+    position: absolute;
+    top :0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.top-row {
+    margin-bottom: 0%;
+}
+
+.bottom-col {
+    margin-left: 5px;
+    margin-right: 5px;
+}

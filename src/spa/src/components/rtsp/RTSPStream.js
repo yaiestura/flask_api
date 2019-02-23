@@ -8,7 +8,7 @@ class RTSPStream extends Component {
       return (
         <div className="card">  
           <h1>Media RTSP Player</h1> 
-          <Preloader/>                    
+          <video src="rtsp://192.168.15.43"></video>            
         </div>
       );
     }

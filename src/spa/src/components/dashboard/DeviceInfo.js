@@ -24,14 +24,14 @@ class DeviceInfo extends Component {
                     </div> 
                     <div className="col s5 actions">
                         <div className="row center-align"> 
-                            <button className="btn gradient-45deg-indigo-blue center-align">Add to group</button>
+                            <button className="btn gradient-45deg-deep-purple-blue center-align">Add to group</button>
                         </div>
                         <div className="row center-align"> 
                             <div className="col s6 center-align">
-                                <button className="btn gradient-45deg-indigo-blue center-align">Edit Device</button>
+                                <button className="btn gradient-45deg-deep-purple-blue center-align">Edit Device</button>
                             </div>
                             <div className="col s6 center-align">
-                                <button className="btn gradient-45deg-indigo-blue center-align">About Device</button>
+                                <button className="btn gradient-45deg-deep-purple-blue center-align">About Device</button>
                             </div>
                         </div>
                     </div>     
