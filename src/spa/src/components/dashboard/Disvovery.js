@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Devices from '../../components/Devices'
-import { fetchDevices } from '../store/actions/fetchDevice'
+import { fetchDevices } from '../../store/actions/fetchDevice'
 import { connect } from 'react-redux'
 import Preloader from './Preloader'
 import './Discovery.css'
@@ -30,12 +30,22 @@ class Discovery extends Component {
 
       return (
         <div className="card">  
-          <h5 className="label">Discovered devices:</h5> 
-          <a class="btn-floating waves-effect waves-light"
-            onClick = { () => this.handleClick() }>
-            <i class="material-icons">autorenew</i>
-          </a>                                
-          <Devices className="card-content"/>                                       
+          <div className="row">
+            <div className="col l10 m10 s10">
+              <h5 className="label left">Discovered devices:</h5> 
+            </div>
+            <div className="col l2 m2 s2">
+              <a class="btn-floating gradient-45deg-deep-purple-blue white-text waves-effect waves-light"
+              onClick = { () => this.handleClick() }>
+                <i class="material-icons">autorenew</i>
+              </a>  
+            </div>
+          </div>  
+          <div className="row"> 
+            <div className="col l12 m12 s12">                          
+              <Devices className="card-content"/> 
+            </div>
+          </div>                                       
         </div>
       );
     }
