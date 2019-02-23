@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import Preloader from './Preloader'
 import './Docs.css'
 
 class Docs extends Component {
