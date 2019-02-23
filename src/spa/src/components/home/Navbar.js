@@ -12,12 +12,12 @@ const Navbar = () => {
                         <i class="material-icons">menu</i>
                     </a>
                     <ul class="navbar-list left hide-on-med-and-down">
-                        <li><NavLink to="/discoverydashboard">Dashboard</NavLink></li>
+                        <li><NavLink to="/discovery">Dashboard</NavLink></li>
                         <li><NavLink to="/docs">Docs</NavLink></li>
                         <li><a target="_blank" href="https://github.com/yaiestura">Github</a></li>                       
                     </ul>
                     <ul class="sidenav gradient-45deg-indigo-light-blue" id="mobile-menu">
-                        <li><NavLink to="/discoverydashboard">Dashboard</NavLink></li>
+                        <li><NavLink to="/discovery">Dashboard</NavLink></li>
                         <li><NavLink to="/docs">Docs</NavLink></li>
                         <li><a target="_blank" href="https://github.com/yaiestura">Github</a></li>
                     </ul>
