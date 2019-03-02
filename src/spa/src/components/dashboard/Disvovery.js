@@ -12,6 +12,11 @@ class Discovery extends Component {
       console.log(this.props);
     }
 
+    handleClick() {
+      this.props.dispatch(fetchDevices());
+      console.log(this.props);
+    }
+
     render() {
       const { isFetching, isFetched } = this.props;
 
@@ -20,7 +25,7 @@ class Discovery extends Component {
       }
 
       if (isFetching && !isFetched) {
-        return <Preloader className="preloader center"/>;
+        return <Preloader className="preloader center-align"/>;
       }
 
       return (
@@ -28,7 +33,13 @@ class Discovery extends Component {
           <div className="row top-row">
             <div className="col l10 m10 s10">
               <h5 className="label left">Discovered devices:</h5> 
-            </div>            
+            </div>
+            <div className="col l2 m2 s2">
+              <a class="btn-floating gradient-45deg-deep-purple-blue white-text waves-effect waves-light"
+              onClick = { () => this.handleClick() }>
+                <i class="material-icons">autorenew</i>
+              </a>  
+            </div>
           </div>  
           <div className="row"> 
             <div className="col l12 m12 s12 bottom-col">                          
@@ -38,7 +49,8 @@ class Discovery extends Component {
         </div>
       );
     }
-  }  
+  }
+  
 
   const mapStateToProps = state => ({
     isFetching: state.discovery.isFetching,

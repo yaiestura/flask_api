@@ -21,11 +21,11 @@ def discovery():
             'port': res[1] if len(res) > 1 else '80',
         }
         #Exclude devices on local Server Network
-        if cam['ip'] != '10.0.3.229'):
+        if((cam['ip'] != '192.168.13.247') or (cam['ip'] != '10.0.3.229')):
             cameras.append(cam)
 
     wsd.stop()
     #Sort cameras
-    cameras.sort(key=lambda str: re.match(r'\d+$', str))
+    cameras.sort()
     print cameras
     return cameras
