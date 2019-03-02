@@ -1,7 +1,6 @@
 from wsdiscovery import WSDiscovery
 import re
 
-# need to exclude two cameras .13 and .0
 def discovery():
     cameras = []
 
@@ -21,8 +20,13 @@ def discovery():
             'ip': res[0],
             'port': res[1] if len(res) > 1 else '80',
         }
-        cameras.append(cam)
+        #Exclude devices on local Server Network
+        if cam['ip'] != ('192.168.13.247' or '10.0.3.229'):
+            cameras.append(cam)
 
     wsd.stop()
+    #Sort both by length and alphabetically
+    cameras.sort(key = lambda str: len(str))
+    cameras.sort()
     print cameras
     return cameras
