@@ -27,7 +27,7 @@ class Discovery extends Component {
         <div className="card">  
           <div className="row top-row">
             <div className="col l10 m10 s10">
-              <h5 className="label left">Discovered ONVIF devices:</h5> 
+              <h5 className="label left">Discovered devices:</h5> 
             </div>            
           </div>  
           <div className="row"> 
