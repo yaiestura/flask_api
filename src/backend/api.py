@@ -150,6 +150,9 @@ def gen(url):
     client = rtsp.Client(rtsp_server_uri=url)
 
     while True:
+        if client.read() is None:
+            continue
+            
         img = client.read().resize((640, 480))
         imgByteArr = io.BytesIO()
         img.save(imgByteArr, format='jpeg')

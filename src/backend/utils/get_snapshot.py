@@ -47,8 +47,14 @@ def fetch_snapshot_from_stream(url, username, password):
             url = url[:7] + username + ':' + password + "@" + url[7:]
 
         client = rtsp.Client(rtsp_server_uri=url)
-        image = client.read()
 
+        t = time.time()
+        while True:
+            image = client.read()
+            if image is not None or time.time() - t > 5:
+                break
+
+        
         imgByteArr = io.BytesIO()
         image.save(imgByteArr, format='jpeg')
         image = imgByteArr.getvalue()
