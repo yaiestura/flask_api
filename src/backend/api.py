@@ -8,6 +8,7 @@ import sys
 import csv
 import datetime
 import cv2
+import time
 
 from utils.discovery import discovery
 from utils.get_snapshot import save_snapshot
@@ -148,23 +149,21 @@ def get_public_snapshot_url(path):
 
 def gen(url):
     vcap = cv2.VideoCapture(url)
+    vcap.set(cv2.CAP_PROP_FPS, 15)
+    last_accessed_frame = ''
+    last_accessed_time = time.time()
 
     while True:
-        ret, frame = vcap.read()
-        h, w, _ = frame.shape 
-        new_h, new_w = h, w
+        if time.time() - last_accessed_time > 0.5: 
+            ret, frame = vcap.read()
+            frame = cv2.resize(frame, (640, 480))
+            etval, b = cv2.imencode('.jpg', frame)
 
-        if (h > 720):
-            new_h = 720
-            new_w = new_h / h * w
-
-        frame = cv2.resize(frame, (new_w, new_h))
-
-        etval, b = cv2.imencode('.jpg', frame)
-
+            last_accessed_frame = b.tobytes()
+            last_accessed_time = time.time()
 
         yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + b.tobytes() + b'\r\n')
+               b'Content-Type: image/jpeg\r\n\r\n' + last_accessed_frame + b'\r\n')
 
 
 
@@ -190,4 +189,4 @@ if __name__ == '__main__':
     if '--dev' not in sys.argv:
         print "Please use uWSGI instead of dev server or run this script with --dev flag"
     else:
-        app.run(debug=True)
+        app.run('10.0.3.234', 5000, debug=True)
