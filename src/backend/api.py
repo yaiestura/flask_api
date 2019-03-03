@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, Response
 from core import Core
 from class_core import Core_Test
 import json
@@ -150,7 +150,16 @@ def gen(url):
     vcap = cv2.VideoCapture(url)
 
     while True:
-        ret, frame = cap.read()
+        ret, frame = vcap.read()
+        h, w, _ = frame.shape 
+        new_h, new_w = h, w
+
+        if (h > 720):
+            new_h = 720
+            new_w = new_h / h * w
+
+        frame = cv2.resize(frame, (new_w, new_h))
+
         etval, b = cv2.imencode('.jpg', frame)
 
 
