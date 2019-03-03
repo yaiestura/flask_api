@@ -21,9 +21,10 @@ def get_base64_snapshot(url, username, password):
 def fetch_snapshot(url, username, password):
     image = None
     if url is None:
+        print("fetch_snapshot: empty url")
         return image
 
-    if 'rtsp' in uri:
+    if 'rtsp' in url:
         image = fetch_snapshot_from_stream(url, username, password)
     else:
         try:
