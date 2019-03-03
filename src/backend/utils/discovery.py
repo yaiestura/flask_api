@@ -26,6 +26,6 @@ def discovery():
 
     wsd.stop()
     #Sort cameras
-    cameras = sorted(cameras, key = lambda s: (len(s), re.findall(r'\d+$', s)))
+    cameras = sorted(cameras, key=lambda s: s['ip']: (len(s), re.findall(r'\d+$', s['ip'])))
     print cameras
     return cameras
