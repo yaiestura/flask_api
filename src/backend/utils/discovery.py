@@ -26,6 +26,6 @@ def discovery():
 
     wsd.stop()
     #Sort cameras
-    cameras = sorted(cameras, key=lambda x: (len(x), x['ip']))
+    cameras = sorted(cameras, key=lambda x: (len(x['ip']), x['ip']))
     print cameras
     return cameras
