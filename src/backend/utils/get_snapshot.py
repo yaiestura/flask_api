@@ -2,24 +2,8 @@ import urllib2
 import base64
 import re
 import os
-import signal
 import rtsp
-from contextlib import contextmanager
 import io
-
-class TimeoutException(Exception): pass
-
-@contextmanager
-def time_limit(seconds):
-    def signal_handler(signum, frame):
-        raise TimeoutException("Timed out!")
-    signal.signal(signal.SIGALRM, signal_handler)
-    signal.alarm(seconds)
-    try:
-        yield
-    finally:
-        signal.alarm(0)
-
 
 
 NO_SNAPSHOT_URL = 'http://www.inspiredbydrive.com/wp-content/uploads/2016/12/no-image.png'
@@ -80,11 +64,7 @@ def fetch_snapshot_from_stream(url, username, password):
 def save_snapshot(url, username, password):
     image = None
 
-    try:
-        with time_limit(5):
-            image = fetch_snapshot(url, username, password)
-    except TimeoutException as e:
-        pass
+    image = fetch_snapshot(url, username, password)
 
     
     snapshot_url = NO_SNAPSHOT_URL
