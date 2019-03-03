@@ -7,6 +7,7 @@ import os
 import sys
 import csv
 import datetime
+import cv2
 
 from utils.discovery import discovery
 from utils.get_snapshot import save_snapshot
@@ -144,10 +145,36 @@ def get_public_snapshot_url(path):
     return send_from_directory('snapshots', path)
 
 
+
+def gen(url):
+    vcap = cv2.VideoCapture(url)
+
+    while True:
+        ret, frame = cap.read()
+        etval, b = cv2.imencode('.jpg', frame)
+
+
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + b.tobytes() + b'\r\n')
+
+
+
+@app.route("/api/livestream")
+def get_livestream(url=None):
+    url = 'rtsp://admin:Supervisor@192.168.15.42:554/Streaming/Channels/101?transportmode=unicast&profile=Profile_1'
+
+    return Response(gen(url),
+            mimetype='multipart/x-mixed-replace; boundary=frame')
+
+    
+
+
+
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def index(path):
     return render_template('index.html')
+
 
 
 if __name__ == '__main__':
