@@ -50,7 +50,7 @@ class Core:
 		uri = None
 
 		try:
-			uri = media_service.GetStreamUri(obj)
+			uri = media_service.GetStreamUri(obj).Uri
 		except Exception as e:
 			pass
 
