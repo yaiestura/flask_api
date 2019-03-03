@@ -32,14 +32,6 @@ def wsdiscovery():
     return jsonify(data)
 
 
-@app.route("/api/init", methods=['GET', 'POST'])
-def init():
-    if request.method == 'POST':
-        print('Data recieved')
-        print(request.data)
-        return 'RECIEVED'
-
-
 @app.route("/api/core_test/<method_name>", methods=['GET'])
 def core_test(method_name):
     if request.method == 'GET':
@@ -66,6 +58,7 @@ def core_load():
     print jsonify(data)
     return jsonify(data)
 
+
 @app.route("/api/deviceinfo", methods=['GET'])
 def deviceinfo():
     if request.method == 'GET':
@@ -79,12 +72,14 @@ def deviceinfo():
             IP = ip,
             Port = port,
             Uri = save_snapshot(cam.GetSnapshotUri(), 'admin', 'Supervisor'),
+            StreamUri = cam.GetStreamUri(),
             Manufacturer = response[0],
             Model = response[1],
             FirmwareVersion = response[2],
             SerialNumber = response[3],
             HardwareId = response[4]
         )
+
 
 @app.route("/api/writecsv", methods=['GET'])
 def writecsv():
@@ -128,6 +123,7 @@ def writecsv():
 
         return "POSTED_CSV"
 
+
 @app.route("/api/snapshoturi", methods=['GET', 'POST'])
 def snapshoturi():
     #if request.method == 'POST':
@@ -140,11 +136,10 @@ def snapshoturi():
         cam = Core(ip, port, 'admin', 'Supervisor')
         return jsonify(Uri = cam.GetSnapshotUri())
 
+
 @app.route("/snapshots/<path:path>")
 def get_public_snapshot_url(path):
     return send_from_directory('snapshots', path)
-
-
 
 def gen(url):
     client = rtsp.Client(rtsp_server_uri=url)
@@ -164,24 +159,21 @@ def gen(url):
         client.close()
 
 
-
-@app.route("/api/livestream")
-def get_livestream(url=None):
+@app.route("/api/livestream", methods=['GET'])
+def get_livestream():
     url = 'rtsp://admin:Supervisor@192.168.15.42:554/Streaming/Channels/101?transportmode=unicast&profile=Profile_1'
-
+    #ip = request.args.get('ip')
+    #port = int(request.args.get('port'))
+    #cam = Core(ip, port, 'admin', 'Supervisor')
+    #url = cam.GetStreamUri()
     return Response(gen(url),
             mimetype='multipart/x-mixed-replace; boundary=frame')
-
-    
-
 
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def index(path):
     return render_template('index.html')
-
-
 
 if __name__ == '__main__':
     if '--dev' not in sys.argv:
