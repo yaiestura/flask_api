@@ -49,7 +49,7 @@ class Core:
 
 		try:
 			uri = media_service.GetStreamUri(obj)
-		except Excetion as e:
+		except Exception as e:
 			pass
 
 		return uri
