@@ -31,7 +31,7 @@ class Core:
 
 		try:
 			uri = media_service.GetSnapshotUri({'ProfileToken': token}).Uri
-		except Excetion as e:
+		except Exception as e:
 			pass
 
 		if uri is None:
