@@ -151,7 +151,7 @@ def gen(url):
     vcap = cv2.VideoCapture(url)
     vcap.set(cv2.CAP_PROP_FPS, 15)
     last_accessed_frame = ''
-    last_accessed_time = time.time()
+    last_accessed_time = time.time() - 1
 
     while True:
         if time.time() - last_accessed_time > 0.5: 
