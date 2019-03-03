@@ -8,9 +8,11 @@ class Core:
 		self.user = user
 		self.passw = passw
 		self.cam = ONVIFCamera(self.ip, self.port, self.user, self.passw)
+
 	def GetCapabilities(self):
 		response = self.cam.devicemgmt.GetCapabilities()
 		return response
+
 	def GetDeviceInformation(self):
 		data = []
 		response = self.cam.devicemgmt.GetDeviceInformation()
@@ -20,8 +22,35 @@ class Core:
 		data.append(str(response.SerialNumber))
 		data.append(str(response.HardwareId))
 		return data
+
 	def GetSnapshotUri(self):
+		uri = None
+
 		media_service = self.cam.create_media_service()
 		token = media_service.GetProfiles()[0]._token
-		return media_service.GetSnapshotUri({'ProfileToken': token}).Uri
+
+		try:
+			uri = media_service.GetSnapshotUri({'ProfileToken': token}).Uri
+		except Excetion as e:
+			pass
+
+		if uri is None:
+			uri = self.GetStreamUri()
+
+
+	def GetStreamUri(self):
+		media_service = self.cam.create_media_service()
+		token = media_service.GetProfiles()[0]._token
+
+		obj = media_service.create_type('GetStreamUri')
+		obj.ProfileToken = token
+		obj.StreamSetup = {'Stream': 'RTP-Unicast', 'Transport': {'Protocol': 'RTSP'}}
+		uri = None
+
+		try:
+			uri = media_service.GetStreamUri(obj)
+		except Excetion as e:
+			pass
+
+		return uri
 	
