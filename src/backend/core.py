@@ -37,6 +37,8 @@ class Core:
 		if uri is None:
 			uri = self.GetStreamUri()
 
+		return uri
+
 
 	def GetStreamUri(self):
 		media_service = self.cam.create_media_service()
