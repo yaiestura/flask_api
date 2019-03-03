@@ -7,8 +7,7 @@ import os
 import sys
 import csv
 import datetime
-import cv2
-import time
+import rtsp
 
 from utils.discovery import discovery
 from utils.get_snapshot import save_snapshot
@@ -148,22 +147,15 @@ def get_public_snapshot_url(path):
 
 
 def gen(url):
-    vcap = cv2.VideoCapture(url)
-    vcap.set(cv2.CAP_PROP_FPS, 15)
-    last_accessed_frame = ''
-    last_accessed_time = time.time() - 1
+    client = rtsp.Client(rtsp_server_uri=url)
 
     while True:
-        if time.time() - last_accessed_time > 0.5: 
-            ret, frame = vcap.read()
-            frame = cv2.resize(frame, (640, 480))
-            etval, b = cv2.imencode('.jpg', frame)
-
-            last_accessed_frame = b.tobytes()
-            last_accessed_time = time.time()
+        b_img = client.read().resize((640, 480)).tobytes()
 
         yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + last_accessed_frame + b'\r\n')
+               b'Content-Type: image/jpeg\r\n\r\n' + b_img + b'\r\n')
+    else:
+        client.close()
 
 
 
