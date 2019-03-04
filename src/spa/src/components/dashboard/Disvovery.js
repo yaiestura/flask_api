@@ -35,7 +35,7 @@ class Discovery extends Component {
               <h5 className="label left">Discovered devices:</h5> 
             </div>   
             <div className="col l2 m2 s2">
-              <a className="btn-floating gradient-45deg-deep-purple-blue white-text hoverable"
+              <a className="btn-floating gradient-45deg-deep-purple-blue white-text waves-effect waves-light"
                 onClick={ () => this.handleClick() }>
                 <i className="material-icons">autorenew</i>
               </a>
