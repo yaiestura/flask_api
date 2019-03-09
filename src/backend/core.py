@@ -1,5 +1,6 @@
 from onvif import ONVIFCamera
 import time
+import re
 
 class Core:
 	def __init__(self,ip,port,user,passw):
@@ -55,4 +56,13 @@ class Core:
 			pass
 
 		return uri
+
+	def GetSupportedServices(self):
+		capabilities = []
+		for service in self.cam.devicemgmt.GetServices({'IncludeCapability': False}):
+			capabilities.append(str(re.findall(r"(?<=ver\d\d\/).+(?=\/wsdl)", service['Namespace'])).capitalize())
+		return capabilities
+
+
+
 	

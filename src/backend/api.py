@@ -77,51 +77,10 @@ def deviceinfo():
             Model = response[1],
             FirmwareVersion = response[2],
             SerialNumber = response[3],
-            HardwareId = response[4]
+            HardwareId = response[4],
+            SupportedServices = cam.GetSupportedServices()
         )
 
-
-@app.route("/api/writecsv", methods=['GET'])
-def writecsv():
-    if request.method == 'GET':
-        ip = request.args.get('ip')
-        port = int(request.args.get('port'))
-        cam = Core_Test(ip, port, 'admin', 'Supervisor')
-        date = str(datetime.datetime.now())
-        date = date.split('.')
-        header = [['Device IP', ip], ['Test Performed', date[0]]]
-        summary = [['Services', cam.DeviceCapabilities()]]
-        reportn = os.getcwd() + '/reports/' + ip + '.csv'
-
-        with open(reportn, 'w') as csvFile:
-            writer = csv.writer(csvFile)
-            writer.writerows(header)
-            writer.writerows(summary)
-            writer.writerows(
-                [
-                    ['GetCapabilities', cam.GetCapabilities()], 
-                    ['GetDiscoveryMode', cam.GetDiscoveryMode()], 
-                    ['SetDiscoveryMode', cam.SetDiscoveryMode()], 
-                    ['GetScopes', cam.GetScopes()], 
-                    ['AddScopes', cam.AddScopes()], 
-                    ['RemoveScopes', cam.RemoveScopes()], 
-                    ['GetHostname', cam.GetHostname()], 
-                    ['SetHostname', cam.SetHostname()], 
-                    ['GetNetworkInterfaces', cam.GetNetworkInterfaces()], 
-                    ['GetDNS', cam.GetDNS()], 
-                    ['GetNetworkProtocols', cam.GetNetworkProtocols()], 
-                    ['GetNetworkDefaultGateway', cam.GetNetworkDefaultGateway()], 
-                    ['SetNetworkDefaultGateway', cam.SetNetworkDefaultGateway()], 
-                    ['GetDeviceInformation', cam.GetDeviceInformation()], 
-                    ['GetUsers', cam.GetUsers()], 
-                    ['DeleteUsers', cam.DeleteUsers()], 
-                    ['GetNTP', cam.GetNTP()], 
-                    ['GetServices', cam.GetServices()], 
-                    ['GetSystemDateAndTime', cam.GetSystemDateAndTime()], 
-                    ['GetSystemUris', cam.GetSystemUris()]
-                ])
-
-        return "POSTED_CSV"
 
 
 @app.route("/api/snapshoturi", methods=['GET', 'POST'])
