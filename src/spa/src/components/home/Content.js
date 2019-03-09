@@ -10,9 +10,14 @@ import cheetah from './images/cheetah.jpg'
 class Content extends Component {
 
     componentDidMount() {
-      var elems = document.querySelectorAll('.parallax');
-      M.Parallax.init(elems);   
+      let elems = document.querySelectorAll('.parallax');
+      M.Parallax.init(elems);  
+      let mboxes = document.querySelectorAll('.materialboxed');
+      M.Materialbox.init(mboxes);
+      let tabs = document.querySelectorAll('.tabs');
+      M.Tabs.init(tabs); 
     }
+    
     render() {
       return(
         <div className="content">     

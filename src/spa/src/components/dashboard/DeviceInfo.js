@@ -8,8 +8,8 @@ class DeviceInfo extends Component {
         const { deviceData } = this.props;
         return (
             <div>
-                <h5 className="label">Device Information</h5>
-                <div className="container centernp">
+                <h5 className="label">Device Information:</h5>
+                <div className="container center">
                     <Snapshot uri={this.props.deviceData.Uri}/>
                 </div>
                 <div className="row"> 

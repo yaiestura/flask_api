@@ -85,10 +85,6 @@ def deviceinfo():
 
 @app.route("/api/snapshoturi", methods=['GET', 'POST'])
 def snapshoturi():
-    #if request.method == 'POST':
-        #print('Data recieved')
-        #print(request.get_json())
-        #return 'RECIEVED'
     if request.method == 'GET':
         ip = request.args.get('ip')
         port = int(request.args.get('port'))
